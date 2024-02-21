@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>我想拥有我的博客! | 朝倉 初雪</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>我想拥有我的博客!</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2022-10-02T02:49:16.000Z" id="date"> 2022-10-02</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-04-02T02:20:15.000Z" id="updated"> 2023-04-02</time></div></span></div></div><hr><div id="post-content"><blockquote>
+<p>我也说不清为什么当初想要建立自己的博客了,大概是想要<del>跟风</del>写点东西。从2019年的生日我发出了第一篇文章到现在我给重建的博客写文,从一开始的不知道写什么到现在有目的的发文章,我觉得这是一种成长。</p>
+<p>其间发生过很多事情:换了一个又一个虚拟主机,博客框架也各种尝试。时间定格在2022&#x2F;9&#x2F;12,2019-2022上半年所有的文章没了,数据库文件损坏。这促使我把博客转移到了GithubPages托管。虽然文章丢失了,但是我的足迹没有消失,我执着于写博客,一部分原因就是留下自己的足迹。</p>
+</blockquote>
+<p>言归正传。不管什么原因,你需要搭建自己的博客。所以,首先你要有一个放它的地方。对于静态博客,可部署在Github&#x2F;Cloudflare&#x2F;Gitlab&#x2F;Gitee&#x2F;Bitbucket上(如果想完全自己写HTML可以试试Neocity)。如果想搭建动态博客(Wordpress&#x2F;Typecho之类),你至少需要一个虚拟主机或者服务器。</p>
+<p>静态博客VS动态博客(简略的)</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>多账户</th>
+<th>在线编辑</th>
+<th align="center">存储</th>
+<th>便利</th>
+<th>成本</th>
+<th>稳定性</th>
+<th>多样性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动态</td>
+<td>OK</td>
+<td>OK</td>
+<td align="center">WP比较臃肿,Typecho很轻量</td>
+<td>需要配置PHP,SQL等(宝塔可以一键部署)</td>
+<td>存在</td>
+<td>当心数据库!</td>
+<td>主流框架少</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>NO</td>
+<td>NO(Hexo+  Heroku可以)</td>
+<td align="center">Lite</td>
+<td>安装NodeJS&#x2F;GO&#x2F;…+Git搞定。但是命令行操作</td>
+<td>可以不存在</td>
+<td>只要托管方没事博客就没事</td>
+<td>Hexo&#x2F;Hugo&#x2F;Jekyll&#x2F;Docsify…一抓一大把</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>主题</th>
+<th>插件</th>
+<th>可访问性</th>
+<th>安全性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动态</td>
+<td>多(特效也多</td>
+<td>多</td>
+<td>国内运营商基本没问题,国外记得CDN</td>
+<td>数据库密码设的复杂些</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>多</td>
+<td>多(但是可能不会用</td>
+<td>除了Gitee都在国外,加载速度较慢,只能通过自定义域名挂CDN</td>
+<td>当心Repository被别人搞了(</td>
+</tr>
+</tbody></table>
+<p>两种平台各有千秋,不能说哪个好不好,只能看你习惯什么了。</p>
+<p>预计会写各种博客搭建的教程<del>(因为都整过)</del>,时间关系,这篇文章仅作为一个开头(顺便提醒我别忘了更新)。</p>
+<p>我的知识水平有限,文章中若出现谬误,先不要生气,发送改正意见到我的邮箱,我会抽时间修正。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-start"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/10/04/hexo-github/">← Next Hexo-GithubPages部署指北</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Asakura hatsuyuki</a></h1><div id="description"><p>吹雪摆烂的地方</p></div></div><div id="aside-block"></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

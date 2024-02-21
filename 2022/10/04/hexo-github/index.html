@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hexo-GithubPages部署指北 | 朝倉 初雪</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Hexo-GithubPages部署指北</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2022-10-04T22:58:58.000Z" id="date"> 2022-10-05</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-02-21T09:42:36.864Z" id="updated"> 2024-02-21</time></div></span></div></div><hr><div id="post-content"><h1 id="Hexo-GithubPages部署指北"><a href="#Hexo-GithubPages部署指北" class="headerlink" title="Hexo-GithubPages部署指北"></a>Hexo-GithubPages部署指北</h1><blockquote>
+<p>Tip:静态博客的核心在于写作的物理机。所以，在进行下面任意一步时，确保旁边有一台电脑。此外，这篇教程针对的是Windows，对于Linux，以后的文章会写到。</p>
+</blockquote>
+<h2 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1.安装Node.js"></a>1.安装Node.js</h2><p>Hexo基于Node.js，所以<strong>一切的开始</strong>，你需要安装<a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>。<br>单击16.17.1LTS下载（非LTS也可以，注意不要太久的版本）。<br>下载完毕之后，运行程序并安装（一直Next即可）。<br>安装完毕，调出cmd或者Powershell，运行<code>node -v</code>和<code>npm -v</code>指令。若指令返回版本号（而不是错误信息）就说明安装成功了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">PS C:\Windows\system32&gt; npm -v<br>8.15.0<br>PS C:\Windows\system32&gt; node -v<br>v16.17.1  <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装Git</h2><p>打开<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>首页，点击“Download for Windows”，找到“Other Git for Windows downloads”下的“Standalone Installer”，根据你的系统位数选择32bit&#x2F;64bit安装包。  S<br>下载完毕同样下一步下一步即可。完成后右键菜单会多出来“Git Bash Here”和“Git GUI Here”两项。在任意目录选择“Git Bash Here”（或使用PowerShell或CMD），输入<code>git --version</code>，返回如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">C:\users\administrator\desktop\1&gt;git --version<br>git version 2.37.2.windows.2<br></code></pre></td></tr></table></figure>
+
+<p>至此Git安装完成。</p>
+<h2 id="3-安装并部署Hexo"><a href="#3-安装并部署Hexo" class="headerlink" title="3.安装并部署Hexo"></a>3.安装并部署Hexo</h2><p>在你想存放博客数据的地方新建一个文件夹，随便什么名字。打开powershell并cd到此目录，输入<code>npm install hexo-cli -g</code><br>返回结果大概是这样。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">PS C:\Windows\system32&gt; npm install hexo-cli -g<br>added 1 package, and changed 58 packages in 14s    <br></code></pre></td></tr></table></figure>
+
+<p>然后输入<code>hexo init</code> (如果提示计算机已禁用脚本xxx.ps1，就换cmd并且cd到博客目录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">C:\users\administrator\desktop\1&gt;hexo init<br>INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git<br>INFO  Install dependencies<br>INFO  Start blogging with Hexo!    <br></code></pre></td></tr></table></figure>
+
+<p>此时Hexo会克隆“hexo-starter”仓库，完成后显示“Start Blogging With Hexo”。<br>输入<code>hexo s</code>启动本地预览。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">C:\users\administrator\desktop\1&gt;hexo s<br>INFO  Validating config<br>INFO  Start processing<br>INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.<br></code></pre></td></tr></table></figure>
+
+<p>至此，你的博客就算是部署完成了！</p>
+<h2 id="3-个性化博客"><a href="#3-个性化博客" class="headerlink" title="3.个性化博客"></a>3.个性化博客</h2><blockquote>
+<p>记得Ctrl-C关掉预览！</p>
+</blockquote>
+<h3 id="主题的配置"><a href="#主题的配置" class="headerlink" title="主题的配置"></a>主题的配置</h3><p>Hexo的<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a>页面会对你有所帮助。<br>打开主题页面，选择喜爱的主题，把它下载到博客目录下&#x2F;themes文件夹里，并且把根目录下config.yml中theme改成你主题的文件夹的名字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext"># Extensions<br>## Plugins: https://hexo.io/plugins/<br>## Themes: https://hexo.io/themes/<br>theme: landscape  #修改此处    <br></code></pre></td></tr></table></figure>
+
+<p>再次打开本地预览，正常的话，主题应该可以加载。</p>
+<h3 id="网站标题-副标题-撰写者"><a href="#网站标题-副标题-撰写者" class="headerlink" title="网站标题&#x2F;副标题&#x2F;撰写者"></a>网站标题&#x2F;副标题&#x2F;撰写者</h3><p>在根目录下config.yml中修改。<br>提供一个模板，按需取用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plaintext"># Site<br>title: Your own title<br>subtitle: &#x27;it can be empty&#x27;<br>description: &#x27;for better SEO,you can write it if you need&#x27;<br>keywords: also for SEO<br>author: Your Name<br>language: zh-CN<br>timezone: &#x27;Asia/Shanghai&#x27;   <br></code></pre></td></tr></table></figure>
+
+<p>Title即标题，Subtitle为副标题。Author即显示的作者。语言和时区照抄就OK。<br>如果有中文，需要另存为<strong>UTF-8</strong>格式的文件，要不然会乱码。 <strong>所有“:”之后均有一个空格，不要删除！</strong></p>
+<h2 id="部署到GitHub-Pages"><a href="#部署到GitHub-Pages" class="headerlink" title="部署到GitHub Pages"></a>部署到GitHub Pages</h2><h3 id="配置GitHub账号"><a href="#配置GitHub账号" class="headerlink" title="配置GitHub账号"></a>配置GitHub账号</h3><p>在Git Bash中输入 <code>git config --global user.name &quot;Your GitHub Account Name&quot;</code>     </p>
+<p><code>git config --global user.email &quot;Your Github Account&#39;s Email&quot;</code></p>
+<h3 id="配置SSH秘钥"><a href="#配置SSH秘钥" class="headerlink" title="配置SSH秘钥"></a>配置SSH秘钥</h3><p><code>ssh-keygen -t rsa -C &quot;Your Github Account&#39;s email&quot;</code> 后面连敲回车就行<br>返回大概如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">C:\users\administrator\desktop\1&gt;ssh-keygen -t rsa -C &quot;someone@example.com&quot;<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (C:\Users\Administrator/.ssh/id_rsa):<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in C:\Users\Administrator/.ssh/id_rsa.<br>Your public key has been saved in C:\Users\Administrator/.ssh/id_rsa.pub.<br>The key fingerprint is:<br>SHA256:jgcBZgPRIGuuVyommF1Q someone@example.com<br>The key&#x27;s randomart image is:<br>+---[RSA 2048]----+<br>|  oo. o          |<br>|.E. .  + .       |<br>|. o              |<br>|  +              |<br>|o                |<br>| .               |<br>|oo.              |<br>|                 |<br>|                 |<br>+----[SHA256]-----+<br></code></pre></td></tr></table></figure>
+
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>-&gt;Settings-&gt;SSH &amp; GPG Keys-&gt;New SSH key<br>打开<strong>C:\Users\Administrator（即你的用户名）.ssh\id_rsa.pub</strong>，把里面所有字符复制粘贴到网页中“Key”文本框中，Title随意填。<br>点击“Add SSH Key”即可。<br>返回Git Bash，输入<code>ssh git@github.com</code><br>返回Hi,xxx.You’ve successfully authenticated……..则配置成功。</p>
+<h3 id="推送Blog"><a href="#推送Blog" class="headerlink" title="推送Blog"></a>推送Blog</h3><h4 id="新建存储库（Repository）"><a href="#新建存储库（Repository）" class="headerlink" title="新建存储库（Repository）"></a>新建存储库（Repository）</h4><p>打开新建页面     </p>
+<p>Repository Name填写 你的Github用户名.github.io    </p>
+<p>Description 随便填    </p>
+<p>选择Public    </p>
+<p>选择Add a README file</p>
+<p>点击 Create repository   </p>
+<p>就新建完成了。   </p>
+<p>完成后切到Repo的settings页面，找到pages选项。设置Deploy from a branch，选择master分支&#x2F;root目录。</p>
+<h4 id="配置Git推送"><a href="#配置Git推送" class="headerlink" title="配置Git推送"></a>配置Git推送</h4><p>在仓库页面Code下找到SSH地址（<a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:用户名&#x2F;用户名.github.io.git）复制。   </p>
+<p>打开博客目录下config.yml，页面底部照这个填写   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">deploy:<br> type: &#x27;git&#x27;<br> repo: git@github.com:你的用户名/你的用户名.github.io.git<br> branch: master<br></code></pre></td></tr></table></figure>
+
+<p>回到GitBash, 输入<code>npm install hexo-deployer-git</code> 安装部署插件。   </p>
+<p>安装完成后，输入<code>hexo s</code>   </p>
+<p>部署完成，等待一会就能看到成品（不是）了。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/10/21/dialog1/">← Next 废话</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/10/02/i-want-to-set-my-site/">我想拥有我的博客! Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Asakura hatsuyuki</a></h1><div id="description"><p>吹雪摆烂的地方</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-GithubPages%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8C%97"><span class="toc-number">1.</span> <span class="toc-text">Hexo-GithubPages部署指北</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">1.1.</span> <span class="toc-text">1.安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%B9%B6%E9%83%A8%E7%BD%B2Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">3.安装并部署Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.4.</span> <span class="toc-text">3.个性化博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">主题的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E6%A0%87%E9%A2%98-%E5%89%AF%E6%A0%87%E9%A2%98-%E6%92%B0%E5%86%99%E8%80%85"><span class="toc-number">1.4.2.</span> <span class="toc-text">网站标题&#x2F;副标题&#x2F;撰写者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages"><span class="toc-number">1.5.</span> <span class="toc-text">部署到GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGitHub%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.5.1.</span> <span class="toc-text">配置GitHub账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH%E7%A7%98%E9%92%A5"><span class="toc-number">1.5.2.</span> <span class="toc-text">配置SSH秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81Blog"><span class="toc-number">1.5.3.</span> <span class="toc-text">推送Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E5%BA%93%EF%BC%88Repository%EF%BC%89"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">新建存储库（Repository）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGit%E6%8E%A8%E9%80%81"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">配置Git推送</span></a></li></ol></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

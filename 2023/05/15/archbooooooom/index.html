@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>我是如何把我的ArchLinux搞崩的 | 朝倉 初雪</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>我是如何把我的ArchLinux搞崩的</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-05-15T19:54:26.632Z" id="date"> 2023-05-16</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-02-21T09:42:36.860Z" id="updated"> 2024-02-21</time></div></span></div></div><hr><div id="post-content"><h1 id="我是如何崩掉我的ArchLinux的"><a href="#我是如何崩掉我的ArchLinux的" class="headerlink" title="我是如何崩掉我的ArchLinux的"></a>我是如何崩掉我的ArchLinux的</h1><p>上一篇文章提到我把我Arch搞崩了，這裡寫一下過程，方便大家借鑒（不是     </p>
+<h2 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h2><p>裝過Arch的人都知道它的包管理器是pacman。不管怎麼樣，Debian的包管理器apt也是能跑起來的。不過wiki上已寫明，這兩個東西軟體列表不互通，也就是說互相不知道對方乾了什麼。     </p>
+<h2 id="為什麼我要突然要用apt"><a href="#為什麼我要突然要用apt" class="headerlink" title="為什麼我要突然要用apt"></a>為什麼我要突然要用apt</h2><p>這個鍋我十分不情願的甩給icalingua++<del>（icalingua++：這鍋我不背）</del>    </p>
+<p>icalingua++是多平台的QQ第三方客戶端。那段時間tx剛剛停止了QQLinux登錄（原因是準備大更新，沒過幾週新版就上線了），我又急著用QQ，然後裝了這個玩意。<strong>我是從Discover應用商店下載的軟體，但是Discover更新版本慢，於是我實際上安裝了舊版本</strong>。   </p>
+<blockquote>
+<p>為什麼我不用wineQQ呢，因為不知道為什麼yay補不全依賴。裝了deepinwine也不行。     </p>
+</blockquote>
+<p>登錄登不上，提示版本過低。我看了看是最新版啊（當時不知道是舊版），然後<code>pacman  -Syu</code>了一下也沒有更新。      </p>
+<p>然後我上了GitHub，看了看，哦，是舊版。       </p>
+<p>我找到Release，往下拉，發現沒有適用於Arch的版本，唯一一個認識的就是<code>deb</code>格式的安裝包。找了找，Arch可以裝dpkg，於是我費了半天事裝上了dpkg，嘗試安裝這個包，但是它報錯缺少依賴庫（基本是<code>libxxx.so</code>這些）。       </p>
+<p>然後我看了看，在Arch裡邊dpkg沒法解決依賴，得上apt，於是我又搞上了apt，還是不行。       </p>
+<p>我嘗試搜索包，但是沒有相關的包。我繼續查資料，發現沒有這方面的資料。按理說我應該已經發現不對勁了，但是我急著用QQ，就沒多想，繼續鍥而不捨的整。      </p>
+<p>然後我發現根本沒辦法補全依賴，氣得我直接<code>apt upgrade</code>，你猜怎麼著，它終於開始補依賴了，我突然挺開心，就放著它upgrade，我在旁邊寫作業。      </p>
+<p>過了一會我抬起頭，看到列表裡面有<code>libc++</code>，我覺得不大對勁：<strong>LinuxKernel是C編譯的，為什麼會缺這東西</strong>         </p>
+<p>但是已經晚了。     </p>
+<p>過了不久，apt突然停止運作，plasma提示各種軟體停止運行。我嘗試打開Konsole，打不開。還好之前已經打開的終端沒關閉，我隨便輸了個指令，它報錯 <code>bash:內存轉儲錯誤</code>。      </p>
+<p>一番折騰之後我選擇了強制關機（為什麼要強制呢？因為<code>shutdown</code>都報錯了hhhh），重啟。      </p>
+<p>但是沒啟動起來。         </p>
+<p>grub引導之後直接報RIP Code.          </p>
+<p>完了。          </p>
+<p>記下RIP code查了一下，發現最近似的案例是系統關鍵庫缺失（他就是缺了libc），很明顯這是我apt整的。       </p>
+<p>都這個樣了，沒什麼動力去修了（況且也修不好）第二天我就把系統重新安裝了。還好沒什麼重要信息在裡面。         </p>
+<h2 id="這個故事告訴我們：不要混用包管理器1111111"><a href="#這個故事告訴我們：不要混用包管理器1111111" class="headerlink" title="這個故事告訴我們：不要混用包管理器1111111"></a>這個故事告訴我們：不要混用包管理器1111111</h2><p>前面提到了，apt和pacman數據不互通。系統安裝時pacman安裝了這些庫，但是apt不知道，於是拿自己的一套替換了原有的庫，導致了系統崩潰。     </p>
+<h2 id="後來怎麼樣"><a href="#後來怎麼樣" class="headerlink" title="後來怎麼樣"></a>後來怎麼樣</h2><p>重裝完系統之後，我一看，Discover更新了，於是我終於用最新版的icalingua++登錄了QQ。<strong>icalingua++很好用，我沒有抹黑他的意思。</strong>又過了不久，QQLinux更新了，於是我換上了這個東西用著。但是平常一直用icalingua++。</p>
+<p>好消息是，我的系統再沒崩潰過（</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/08/12/misskey-with-cloudflare-tunnel/">← Next 使用Cloudflare Tunnel部署公网misskey实例的一些心得</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/05/15/efibooting/">EFI Shell應急啟動系統 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Asakura hatsuyuki</a></h1><div id="description"><p>吹雪摆烂的地方</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%B4%A9%E6%8E%89%E6%88%91%E7%9A%84ArchLinux%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">我是如何崩掉我的ArchLinux的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">包管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E8%A6%81%E7%AA%81%E7%84%B6%E8%A6%81%E7%94%A8apt"><span class="toc-number">1.2.</span> <span class="toc-text">為什麼我要突然要用apt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%99%E5%80%8B%E6%95%85%E4%BA%8B%E5%91%8A%E8%A8%B4%E6%88%91%E5%80%91%EF%BC%9A%E4%B8%8D%E8%A6%81%E6%B7%B7%E7%94%A8%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A81111111"><span class="toc-number">1.3.</span> <span class="toc-text">這個故事告訴我們：不要混用包管理器1111111</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E4%BE%86%E6%80%8E%E9%BA%BC%E6%A8%A3"><span class="toc-number">1.4.</span> <span class="toc-text">後來怎麼樣</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
